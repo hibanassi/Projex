@@ -1,0 +1,19 @@
+<div class="auth-wrapper">
+  <div class="auth-container">
+    <h2> Hey,Welcome Back </h2>
+    <p>Connectez-vous à votre compte pour continuer</p>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <div class="form-group">
+        <input type="email" [(ngModel)]="credentials.email" name="email" required placeholder=" ">
+        <label>Email:</label>
+      </div>
+      <div class="form-group">
+        <input type="password" [(ngModel)]="credentials.password" name="password" required placeholder=" ">
+        <label>Password:</label>
+      </div>
+      <button type="submit">Login</button>
+      <p *ngIf="error" class="error">{{error}}</p>
+      <p>Don't have an account? <a routerLink="/register">S'inscrire</a></p>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<h2>Invitations reçues</h2>
+
+<div class="project-grid">
+  <div *ngFor="let invite of invitations">
+
+    <div class="project-card">
+
+      <div class="card-content">
+        <h3>{{ invite.project_name }}</h3>
+
+        <p class="project-description">
+          Invitation envoyée par <strong>{{ invite.inviter_name }}</strong>
+        </p>
+      </div>
+
+      <div class="card-footer">
+        <div class="card-actions">
+
+          <button class="btn btn-success btn-small" (click)="respond(invite.id, 'accepted')">
+            Accepter
+          </button>
+
+          <button class="btn btn-danger btn-small" (click)="respond(invite.id, 'rejected')">
+            Refuser
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<h2>Invitations envoyées</h2>
+
+<div class="project-grid">
+
+  <div *ngFor="let invite of sentInvitations">
+
+    <div class="project-card">
+
+      <div class="card-content">
+
+        <h3>{{ invite.project_name }}</h3>
+
+        <p class="project-description">
+          Propriétaire : <strong>{{ invite.owner_name }}</strong><br>
+          Envoyée le : {{ invite.created_at | date:'dd/MM/yyyy HH:mm' }}
+        </p>
+
+
+      </div>
+
+      <div class="card-footer">
+
+        <span class="badge pending" *ngIf="invite.status == 'pending'">
+          En attente
+        </span>
+
+        <span class="badge accepted" *ngIf="invite.status == 'accepted'">
+          Acceptée
+        </span>
+
+        <span class="badge rejected" *ngIf="invite.status == 'rejected'">
+          Refusée
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

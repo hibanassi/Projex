@@ -1,0 +1,61 @@
+<div class="container">
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="loading-spinner"></div>
+    <p>Chargement de la tâche...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error" class="alert alert-error">
+    {{ error }}
+    <button (click)="loadTask()" class="btn btn-primary btn-small">Réessayer</button>
+  </div>
+
+  <!-- Edit Form -->
+  <div *ngIf="!isLoading && !error && task">
+    <h1>Modifier la tâche</h1>
+
+    <form (ngSubmit)="onSubmit()" #editForm="ngForm" class="edit-form">
+      <!-- Hidden project_id (not needed in Angular, we'll use task.project_id) -->
+
+      <div class="form-group">
+        <label for="title">Titre de la tâche</label>
+        <input id="title" type="text" name="title" [(ngModel)]="task.title" placeholder="Titre de la tâche" required
+          #title="ngModel" [class.invalid]="title.invalid && title.touched">
+        <div *ngIf="title.invalid && title.touched" class="error-message">
+          Le titre est requis
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" [(ngModel)]="task.description"
+          placeholder="Description (optionnel)" rows="4"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="status">Statut</label>
+        <select id="status" name="status" [(ngModel)]="task.status" class="status-select">
+          <option value="pending">À faire</option>
+          <option value="in_progress">En cours</option>
+          <option value="done">Terminée</option>
+        </select>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" [disabled]="!editForm.form.valid || isSaving" class="btn btn-primary">
+          <span *ngIf="!isSaving">Enregistrer</span>
+          <span *ngIf="isSaving">Enregistrement...</span>
+        </button>
+
+        <a [routerLink]="['/projects', task.project_id]" class="btn btn-secondary">
+          Annuler
+        </a>
+      </div>
+    </form>
+
+    <div *ngIf="saveError" class="alert alert-error">
+      {{ saveError }}
+    </div>
+  </div>
+</div>

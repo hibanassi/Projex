@@ -1,0 +1,76 @@
+.sidebar {
+  width: 220px;
+  background-color: #355872;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  min-height: 100vh; 
+}
+
+.app-name {
+  margin: 0;        
+  padding-top: 0px; 
+  padding-bottom: 90px; 
+}
+
+.app-name span {
+  font-size: 40px;
+  font-weight: 800;
+  opacity: 0.9;
+  display: block;
+  color: white;
+}
+
+.sidebar-top, .sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-block {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  display: flex;             
+  align-items: center;        
+  gap: 10px;                 
+  text-align: left;           
+  justify-content: flex-start;
+}
+
+.btn-primary { background-color: #007bff; }
+.btn-secondary { background-color: #6c757d; }
+.btn-danger { background-color: #dc3545; }
+
+.btn-block:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -220px;
+    height: 100%;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+}
+.badge{
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 8px;
+  font-size: 12px;
+  margin-left: 8px;
+}

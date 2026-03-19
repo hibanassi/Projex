@@ -1,0 +1,42 @@
+<div class="auth-wrapper">
+  <div class="auth-card">
+    
+    <div class="logo">
+      <h2><span>Welcome to Projex</span></h2>
+      <p>Créer votre compte</p>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+
+      <div class="input-group">
+        <input type="text" formControlName="username" required>
+        <label>Nom complet:</label>
+      </div>
+
+      <div class="input-group">
+        <input type="email" formControlName="email" required>
+        <label>Email:</label>
+      </div>
+
+      <div class="input-group">
+        <input type="password" formControlName="password" required>
+        <label>Password:</label>
+      </div>
+
+      <button type="submit" >
+        S'inscrire
+      </button>
+
+      <div class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+
+      <div class="login-link">
+        Déjà un compte ?
+        <a routerLink="/login">Se connecter</a>
+      </div>
+
+    </form>
+
+  </div>
+</div>

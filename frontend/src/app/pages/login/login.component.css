@@ -1,0 +1,128 @@
+.auth-wrapper {
+  display: block; /* plus de flex */
+  min-height: 100vh;
+  background: linear-gradient(135deg, #355872, #7AAACE);
+  padding-top: 50px; /* espace en haut pour centrer verticalement */
+  padding-bottom: 50px; /* espace en bas */
+  text-align: center; /* centre horizontalement le formulaire */
+}
+/* login.component.css */
+.auth-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 40px 20px 20px 20px; /* plus de padding en haut */
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.6s ease;
+}
+
+.auth-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-container p {
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+/* Formulaire */
+.form-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.form-group label {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  color: #999;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #667eea;
+}
+
+.form-group:focus-within label,
+.form-group input:not(:placeholder-shown) ~ label {
+  top: -8px;
+  left: 10px;
+  font-size: 12px;
+  background: white;
+  padding: 0 5px;
+  color: #667eea;
+}
+
+
+
+/* Bouton */
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #667eea;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #5a67d8;
+}
+
+button:disabled {
+  background: #bbb;
+  cursor: not-allowed;
+}
+
+/* Message d'erreur */
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+/* Lien pour s'inscrire */
+p a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,45 @@
+<div class="container">
+      <h1>Créer un nouveau projet</h1>
+
+      <form (ngSubmit)="onSubmit()" #projectForm="ngForm">
+        <div class="form-group">
+          <input
+            type="text"
+            name="name"
+            [(ngModel)]="project.name"
+            placeholder="Nom du projet"
+            required
+            #name="ngModel"
+            [class.invalid]="name.invalid && name.touched"
+          >
+          <div *ngIf="name.invalid && name.touched" class="error-message">
+            Le nom du projet est requis
+          </div>
+        </div>
+
+        <div class="form-group">
+          <textarea
+            name="description"
+            [(ngModel)]="project.description"
+            placeholder="Description du projet"
+            rows="5"
+            #description="ngModel"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          [disabled]="!projectForm.form.valid || isLoading"
+          [class.loading]="isLoading"
+        >
+          <span *ngIf="!isLoading">Créer le projet</span>
+          <span *ngIf="isLoading">Création en cours...</span>
+        </button>
+
+        <div *ngIf="error" class="error-alert">
+          {{ error }}
+        </div>
+      </form>
+
+      <a routerLink="/dashboard" class="back-link">← Retour au tableau de bord</a>
+    </div>

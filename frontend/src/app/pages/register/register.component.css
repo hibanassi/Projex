@@ -1,0 +1,127 @@
+/* Page entière */
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #355872, #7AAACE); /* dégradé violet/bleu */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Carte / formulaire */
+.auth-card {
+  background: rgba(255, 255, 255, 0.95); /* blanc légèrement transparent */
+  padding: 40px;
+  width: 400px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.6s ease;
+}
+
+/* Logo */
+.logo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo h2 {
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.logo p {
+  color: #555;
+  font-size: 14px;
+}
+
+/* Inputs flottants */
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-group label {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  color: #999;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #667eea;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: -8px;
+  left: 10px;
+  font-size: 12px;
+  background: white;
+  padding: 0 5px;
+  color: #667eea;
+}
+
+/* Bouton */
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #667eea;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #5a67d8;
+}
+
+button:disabled {
+  background: #bbb;
+  cursor: not-allowed;
+}
+
+/* Messages */
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

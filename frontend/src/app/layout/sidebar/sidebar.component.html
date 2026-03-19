@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+<nav class="sidebar" [class.open]="isOpen">
+  <div class="sidebar-top">
+    <h1 class="app-name"><span>Projex</span></h1>
+    
+    <button routerLink="/projects/new" class="btn btn-primary btn-block" (click)="onNavigate()">
+      <i class="fi fi-rr-add"></i> Nouveau Projet
+    </button>
+    <button routerLink="/dashboard" class="btn btn-secondary btn-block mt-2" (click)="onNavigate()">
+      <i class="fi fi-rr-home"></i>  Dashboard
+    </button>
+    <button routerLink="/my-projects" class="btn btn-secondary btn-block mt-2" (click)="onNavigate()">
+      <i class="fi fi-rr-folder"></i>  Mes projets
+    </button>
+    <button routerLink="/collaborations" class="btn btn-secondary btn-block mt-2" (click)="onNavigate()">
+      <i class="fi fi-rr-users-alt"></i>  Collaborations
+    </button>
+    <button routerLink="/invitations" class="btn btn-secondary btn-block mt-2" (click)="onNavigate()">
+      <i class="fi fi-rr-user-add"></i>  Invitations
+      <span *ngIf="invitationCount > 0" class="badge">
+        {{ invitationCount }}
+      </span>
+    </button>
+  </div>
+  <div class="sidebar-bottom">
+    <button (click)="logout()" class="btn btn-danger btn-block">
+      <i class="fi fi-rr-sign-out-alt"></i> Déconnexion
+    </button>
+  </div>
+</nav>

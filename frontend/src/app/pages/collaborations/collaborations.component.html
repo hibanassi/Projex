@@ -1,0 +1,28 @@
+<h2>Projets collaborés</h2>
+
+<div class="project-grid">
+  <div *ngFor="let project of collaboratedProjects">
+    <div class="project-card">
+
+      <div class="card-content">
+        <h3>
+          {{ project.name }}
+          <span class="badge-owner">Collaborateur</span>
+        </h3>
+
+        <p class="project-description">
+          {{ project.description || 'Aucune description' }}
+        </p>
+      </div>
+
+      <div class="card-footer">
+        <div class="card-actions">
+          <a [routerLink]="['/projects', project.id]" class="btn btn-primary btn-small">
+            Voir
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="layout">
+  <app-sidebar [isOpen]="isSidebarOpen" (closeSidebar)="closeSidebar()"></app-sidebar>
+  <div class="main-content">
+    <app-topbar (menuClick)="toggleSidebar()"></app-topbar>
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="overlay" *ngIf="isSidebarOpen" (click)="closeSidebar()">
+  </div>
+</div>

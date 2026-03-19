@@ -1,0 +1,79 @@
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 10px;
+    background-color: #F7F8F0;
+}
+
+.project-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-footer {
+    margin-top: 10px;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-actions .btn {
+    flex: 1 1 45%;
+    font-size: 0.85rem;
+    padding: 6px;
+    text-align: center;
+}
+
+.card-actions button {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.card-actions button:hover {
+    background-color: #5a6268;
+}
+
+@media (max-width: 600px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+        
+    }
+    .card-actions .btn {
+        flex: 0 0 auto !important; 
+        width: auto !important;    
+    }
+    
+    .card-content h3 {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

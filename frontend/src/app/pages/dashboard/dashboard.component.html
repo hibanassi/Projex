@@ -1,0 +1,92 @@
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+<div class="dashboard">
+  <!-- Dashboard Header with Logout -->
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-state">
+    <div class="loading-spinner"></div>
+    <p>Chargement des projets...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error" class="alert alert-error">
+    {{ error }}
+    <button (click)="loadProjects()" class="btn btn-primary btn-small">Réessayer</button>
+  </div>
+
+  <!-- Filter Section -->
+  <div class="filter-section" *ngIf="!loading && !error">
+    <label for="statusFilter">Filtrer par état :</label>
+    <select id="statusFilter" [(ngModel)]="selectedStatus" (change)="applyFilter()">
+      <option value="all">Tous</option>
+      <option value="À faire">À faire</option>
+      <option value="En cours">En cours</option>
+      <option value="Terminé">Terminé</option>
+    </select>
+  </div>
+
+  <!-- Projects Grid -->
+  <div class="project-grid" *ngIf="!loading && !error">
+    <div *ngFor="let project of filteredProjects">
+      <div class="project-card">
+        <div class="card-content">
+          <h3>
+            {{ project.name }}
+            <span *ngIf="project.owner_id === userId" class="badge-owner">Propriétaire</span>
+          </h3>
+          <p class="project-description" [class.empty]="!project.description">
+            {{ project.description || 'Aucune description' }}
+          </p>
+          <div class="project-stats">
+
+            <span class="stat">
+              <i class="fi fi-rr-users"></i> {{ project.collaborators_count || 0 }}
+            </span>
+
+            <span class="stat">
+              <i class="fi fi-rr-list"></i> {{ project.tasks_count || 0 }}
+            </span>
+
+          </div>
+
+          <div class="progress-section">
+            <div class="progress-label">
+              <span>Progression</span>
+              <span>{{ project.progress || 0 }}%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" [style.width.%]="project.progress || 0"></div>
+            </div>
+          </div>
+
+          <!-- Badge état du projet -->
+          <span class="badge-status">{{ getProjectStatus(project) }}</span>
+        </div>
+
+        <div class="card-footer">
+          <div class="card-actions">
+            <button class="btn btn-secondary btn-small" (click)="collaborate(project.id)">
+              Collaborer
+            </button>
+
+            <a [routerLink]="['/projects', project.id]" class="btn btn-primary btn-small">
+              Voir
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logout Confirmation Modal (Optional) -->
+  <div class="modal-overlay" *ngIf="showLogoutConfirm" (click)="showLogoutConfirm = false">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h3>Déconnexion</h3>
+      <p>Êtes-vous sûr de vouloir vous déconnecter ?</p>
+      <div class="modal-actions">
+        <button (click)="confirmLogout()" class="btn btn-danger">Oui, déconnecter</button>
+        <button (click)="showLogoutConfirm = false" class="btn btn-secondary">Annuler</button>
+      </div>
+    </div>
+  </div>
+</div>

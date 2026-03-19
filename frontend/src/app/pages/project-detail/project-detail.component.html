@@ -1,0 +1,138 @@
+<div class="container container-wide">
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="loading-spinner"></div>
+    <p>Chargement du projet...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error" class="alert alert-error">
+    {{ error }}
+    <button (click)="loadProject()" class="btn btn-primary btn-small">Réessayer</button>
+  </div>
+
+  <!-- Project Content -->
+  <div *ngIf="!isLoading && !error && project">
+    <!-- Project Header -->
+    <div class="project-header">
+      <h1>{{ project.name }}</h1>
+      <p class="project-description">{{ project.description || 'Aucune description' }}</p>
+    </div>
+
+    <h3 class="collab-title">Collaborateurs</h3>
+
+    <div *ngIf="collaborators.length > 0" class="collaborators-list">
+
+      <div *ngFor="let user of collaborators" class="collaborator-item">
+
+        <!-- gauche -->
+        <div class="user-info">
+          <i class="fi fi-rr-user"></i> {{ user.username }}
+        </div>
+
+        <!-- droite -->
+        <div class="actions">
+          <button *ngIf="isOwner" class="btn btn-danger btn-small" (click)="removeCollaborator(user.id)">
+            Supprimer
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div *ngIf="collaborators.length === 0" class="empty-state">
+      <p>Aucun collaborateur</p>
+    </div>
+    <!-- Tasks Section -->
+    <div class="tasks-section">
+      <h2>Tâches</h2>
+
+      <!-- No Tasks -->
+      <div *ngIf="tasks.length === 0" class="empty-state">
+        <p>Aucune tâche pour ce projet</p>
+      </div>
+
+      <!-- Tasks List -->
+      <div *ngIf="tasks.length > 0" class="tasks-list">
+        <div *ngFor="let task of tasks" class="task-card" [class]="'task-' + task.status">
+          <div class="task-header">
+            <h3>
+              {{ task.title }}
+              <span class="creator-badge" *ngIf="task.creator_name">
+                {{ task.creator_name }}
+              </span>
+            </h3>
+            <span class="task-status" [class]="'status-' + task.status">
+              {{ getStatusLabel(task.status) }}
+            </span>
+          </div>
+
+          <p *ngIf="task.description" class="task-description">
+            {{ task.description }}
+          </p>
+
+          <div class="task-actions" *ngIf="project.owner_id == userId || task.created_by == userId">
+            <!-- Status Update Form -->
+            <div class="status-update">
+              <select #statusSelect [value]="task.status" (change)="updateTaskStatus(task.id!, statusSelect.value)"
+                class="status-select">
+                <option value="pending">À faire</option>
+                <option value="in_progress">En cours</option>
+                <option value="done">Terminée</option>
+              </select>
+            </div>
+
+            <div class="action-buttons" *ngIf="project.owner_id == userId || task.created_by == userId">
+              <a [routerLink]="['/tasks', task.id, 'edit']" class="btn btn-primary btn-small">
+                Modifier
+              </a>
+              <button (click)="deleteTask(task.id!, project.id!)" class="btn btn-danger btn-small">
+                Supprimer
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Task Form -->
+    <div class="add-task-section" *ngIf="isAuthorized">
+      <h3>Ajouter une tâche</h3>
+
+      <form (ngSubmit)="addTask()" #taskForm="ngForm" class="task-form">
+        <div class="form-group">
+          <input type="text" name="title" [(ngModel)]="newTask.title" placeholder="Titre de la tâche" required
+            #title="ngModel" [class.invalid]="title.invalid && title.touched">
+          <div *ngIf="title.invalid && title.touched" class="error-message">
+            Le titre est requis
+          </div>
+        </div>
+
+        <div class="form-group">
+          <textarea name="description" [(ngModel)]="newTask.description" placeholder="Description (optionnel)"
+            rows="3"></textarea>
+        </div>
+
+        <button type="submit" [disabled]="!taskForm.form.valid || isAddingTask" class="btn btn-success">
+          <span *ngIf="!isAddingTask">Ajouter la tâche</span>
+          <span *ngIf="isAddingTask">Ajout en cours...</span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Project Actions -->
+    <div class="project-actions" *ngIf="project.owner_id == userId">
+      <a [routerLink]="['/projects', project.id, 'edit']" class="btn btn-primary">
+        Modifier le projet
+      </a>
+
+      <button (click)="deleteProject()" class="btn btn-danger">
+        Supprimer le projet
+      </button>
+
+
+    </div>
+    <a routerLink="/dashboard" class="back-link">← Retour au tableau de bord</a>
+  </div>
+</div>

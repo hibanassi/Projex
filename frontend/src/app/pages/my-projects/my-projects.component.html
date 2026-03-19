@@ -1,0 +1,29 @@
+<h2>Mes projets</h2>
+
+    <!-- Liste -->
+    <div class="project-grid" *ngIf="!loading && myProjects.length > 0">
+
+        <div *ngFor="let project of myProjects" class="project-card">
+
+            <div class="card-content">
+                <h3>{{ project.name }}</h3>
+
+                <p class="project-description">
+                    {{ project.description || 'Aucune description' }}
+                </p>
+            </div>
+
+            <div class="card-footer">
+                <a [routerLink]="['/projects', project.id]" class="btn btn-primary btn-small">
+                    Voir
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Vide -->
+    <div *ngIf="!loading && myProjects.length === 0">
+        <p>Aucun projet créé</p>
+    </div>

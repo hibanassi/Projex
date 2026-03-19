@@ -1,0 +1,57 @@
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 220px; /* largeur sidebar */
+  right: 0;
+  height: 60px;
+  background: linear-gradient(135deg, #355872, #7AAACE);
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  color: white;
+  z-index: 900;
+}
+
+.title {
+  font-size: 60px;
+  font-weight: 600;
+  
+}
+
+.welcome {
+  font-weight: 700;
+  font-size: 24px;
+  opacity: 0.9;
+  color: white;  
+}
+
+.menu-btn {
+  display: none;
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: white;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+  .topbar {
+    height: 60px;
+    padding: 0 10px;
+    left: 0;
+  }
+
+  .title {
+    font-size: 60px;
+  }
+
+  .welcome {
+    font-size: 18px;
+  }
+}

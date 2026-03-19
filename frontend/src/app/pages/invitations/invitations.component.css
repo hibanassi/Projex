@@ -1,0 +1,49 @@
+h2 {
+  margin: 0px 0 10px;
+  color: #2c3e50;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px; 
+}
+
+.card-actions .btn-success {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.card-actions .btn-success:hover {
+  background-color: #27ae60;
+}
+
+.card-actions .btn-danger {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.card-actions .btn-danger:hover {
+  background-color: #c0392b;
+}
+
+.badge{
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.pending{
+  background:#fff3cd;
+  color:#856404;
+}
+
+.accepted{
+  background:#d4edda;
+  color:#155724;
+}
+
+.rejected{
+  background:#f8d7da;
+  color:#721c24;
+}
