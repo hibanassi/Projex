@@ -10,12 +10,12 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'] // petite correction: styleUrls au pluriel
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
   projects: any[] = [];
-  filteredProjects: any[] = []; // <-- ajout pour le filtrage
-  selectedStatus: string = 'all'; // <-- état sélectionné pour le filtre
+  filteredProjects: any[] = []; 
+  selectedStatus: string = 'all'; 
 
   loading = true;
   error = '';
@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit {
     this.projectService.getProjects().subscribe({
       next: (data: any[]) => {
         this.projects = data;
-        this.filteredProjects = [...this.projects]; // affiche tous les projets par défaut
+        this.filteredProjects = [...this.projects]; 
         this.loading = false;
       },
       error: (err) => {
@@ -71,7 +71,7 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
-  // --- Méthodes pour le logout avec confirmation ---
+  
   logoutWithConfirm() {
     this.showLogoutConfirm = true;
   }
@@ -81,7 +81,7 @@ export class DashboardComponent implements OnInit {
     this.authService.logout();
   }
 
-  // --- Méthode pour calculer l'état d'un projet selon ses tâches ---
+  
   getProjectStatus(project: any): string {
     if (!project.tasks || project.tasks.length === 0) {
       return 'À faire';
@@ -100,11 +100,11 @@ export class DashboardComponent implements OnInit {
       return 'À faire';
     }
 
-    // Dans TOUS les autres cas → En cours
+   
     return 'En cours';
   }
 
-  // --- Méthode pour filtrer les projets selon l'état ---
+ 
   applyFilter() {
     if (this.selectedStatus === 'all') {
       this.filteredProjects = [...this.projects];

@@ -54,8 +54,6 @@ loadProject() {
     next: (response: any) => {
       this.project = response.project;
       this.tasks = response.tasks;
-
-      // propriétaire OU collaborateur
       this.isAuthorized =
         this.project.owner_id == this.userId || response.isCollaborator;
 
@@ -96,9 +94,7 @@ loadCollaborators() {
     }).subscribe({
       next: (response) => {
         if (response.success) {
-          // Add new task to list
           this.tasks.push(response.task);
-          // Reset form
           this.newTask = { title: '', description: '' };
           this.taskForm.resetForm();
         }
@@ -118,7 +114,6 @@ loadCollaborators() {
     this.projectService.updateTaskStatus(taskId, status, this.project.id).subscribe({
       next: (response) => {
         if (response.success) {
-          // Update task in list
           const task = this.tasks.find(t => t.id === taskId);
           if (task) {
             task.status = status;
@@ -137,7 +132,6 @@ loadCollaborators() {
       this.projectService.deleteTask(taskId, projectId).subscribe({
         next: (response) => {
           if (response.success) {
-            // Remove task from list
             this.tasks = this.tasks.filter(t => t.id !== taskId);
           }
         },

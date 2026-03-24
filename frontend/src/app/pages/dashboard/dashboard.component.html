@@ -65,7 +65,8 @@
 
         <div class="card-footer">
           <div class="card-actions">
-            <button class="btn btn-secondary btn-small" (click)="collaborate(project.id)">
+            <button *ngIf="project.owner_id !== userId && !project.isCollaborator" class="btn btn-secondary btn-small"
+              (click)="collaborate(project.id)">
               Collaborer
             </button>
 

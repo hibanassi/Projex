@@ -1,16 +1,18 @@
 .topbar {
   position: fixed;
   top: 0;
-  left: 220px; /* largeur sidebar */
+  left: 220px;
   right: 0;
   height: 60px;
-  background: linear-gradient(135deg, #355872, #7AAACE);
+  color: white;
   padding: 0 20px;
   display: flex;
   align-items: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  color: white;
+  color: #F7F8F0;
   z-index: 900;
+  background-color: #F7F8F0;
+  backdrop-filter: blur(10px);
 }
 
 .title {
@@ -23,7 +25,7 @@
   font-weight: 700;
   font-size: 24px;
   opacity: 0.9;
-  color: white;  
+  color: #355872;  
 }
 
 .menu-btn {
@@ -31,7 +33,7 @@
   font-size: 22px;
   background: none;
   border: none;
-  color: white;
+  color: #355872;
   margin-right: 15px;
   cursor: pointer;
 }

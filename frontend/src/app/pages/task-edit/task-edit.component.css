@@ -14,7 +14,6 @@ h1 {
   font-size: 28px;
 }
 
-/* Loading State */
 .loading-state {
   text-align: center;
   padding: 40px;
@@ -39,7 +38,6 @@ h1 {
   }
 }
 
-/* Form Styles */
 .edit-form {
   margin-top: 20px;
 }
@@ -101,7 +99,6 @@ textarea {
   margin-top: 5px;
 }
 
-/* Form Actions */
 .form-actions {
   display: flex;
   gap: 15px;
@@ -160,7 +157,6 @@ textarea {
   flex: 0 1 auto;
 }
 
-/* Alerts */
 .alert {
   padding: 12px;
   border-radius: 5px;
@@ -174,7 +170,6 @@ textarea {
   color: #e74c3c;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   body {
     display: flex;

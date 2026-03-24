@@ -1,16 +1,16 @@
 .auth-wrapper {
-  display: block; /* plus de flex */
+  display: block; 
   min-height: 100vh;
   background: linear-gradient(135deg, #355872, #7AAACE);
-  padding-top: 50px; /* espace en haut pour centrer verticalement */
-  padding-bottom: 50px; /* espace en bas */
-  text-align: center; /* centre horizontalement le formulaire */
+  padding-top: 50px; 
+  padding-bottom: 50px; 
+  text-align: center;
 }
-/* login.component.css */
+
 .auth-container {
   max-width: 400px;
   margin: 50px auto;
-  padding: 40px 20px 20px 20px; /* plus de padding en haut */
+  padding: 40px 20px 20px 20px; 
   background: white;
   border-radius: 16px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
@@ -74,9 +74,6 @@
   color: #667eea;
 }
 
-
-
-/* Bouton */
 button {
   width: 100%;
   padding: 14px;
@@ -106,7 +103,7 @@ button:disabled {
   font-size: 14px;
 }
 
-/* Lien pour s'inscrire */
+
 p a {
   color: #667eea;
   text-decoration: none;
@@ -115,7 +112,7 @@ p a {
 
 
 
-/* Animation */
+
 @keyframes fadeIn {
   from {
     opacity: 0;

@@ -2,7 +2,6 @@
   max-width: 800px;
 }
 
-/* Loading State */
 .loading-state {
   text-align: center;
   padding: 50px;
@@ -27,7 +26,6 @@
   }
 }
 
-/* Project Header */
 .project-header {
   background: #7AAACE;
   color: white;
@@ -51,7 +49,6 @@
   text-align: center;
 }
 
-/* Tasks Section */
 .tasks-section {
   background: white;
   border-radius: 8px;
@@ -66,7 +63,6 @@
   font-size: 24px;
 }
 
-/* Empty State */
 .empty-state {
   text-align: center;
   padding: 40px;
@@ -75,7 +71,6 @@
   color: #7f8c8d;
 }
 
-/* Tasks List */
 .tasks-list {
   display: flex;
   flex-direction: column;
@@ -190,7 +185,6 @@
   font-size: 14px;
 }
 
-/* Add Task Section */
 .add-task-section {
   background: white;
   border-radius: 8px;
@@ -211,7 +205,6 @@
   gap: 15px;
 }
 
-/* Project Actions */
 .project-actions {
   background: white;
   border-radius: 8px;
@@ -256,7 +249,7 @@
 
 .collaborator-item {
   display: flex;
-  justify-content: space-between; /* 🔥 clé principale */
+  justify-content: space-between; 
   align-items: center;
   padding: 10px 15px;
   border: 1px solid #eee;
@@ -278,7 +271,7 @@
 
 .collaborator-item {
   display: flex;
-  justify-content: space-between; /* 🔥 clé principale */
+  justify-content: space-between; 
   align-items: center;
   padding: 10px 15px;
   border: 1px solid #eee;
@@ -296,13 +289,13 @@
 }
 
 .collab-title {
-  font-size: 22px;   /* augmente la taille */
-  font-weight: 600;  /* un peu plus gras */
+  font-size: 22px;   
+  font-weight: 600; 
   margin-top: 20px;
   margin-bottom: 10px;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .project-header h1 {
     font-size: 24px;

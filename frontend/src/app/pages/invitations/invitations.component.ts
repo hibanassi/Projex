@@ -35,7 +35,7 @@ export class InvitationsComponent implements OnInit {
 
   respond(inviteId: number, status: 'accepted' | 'rejected') {
     this.projectService.respondInvitation(inviteId, status).subscribe(() => {
-      this.loadInvitations(); // recharge les invitations après action
+      this.loadInvitations(); 
     });
   }
 

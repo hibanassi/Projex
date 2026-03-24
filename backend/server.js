@@ -132,6 +132,7 @@ app.get('/logout', (req, res) => {
 
 // Tableau de bord - récupérer tous les projets
 app.get('/projects', isAuthenticated, (req, res) => {
+    const userId = req.session.userId;
     db.all(
         `SELECT projects.id, projects.name, projects.description, projects.owner_id, users.username AS owner_name
         FROM projects
@@ -145,7 +146,7 @@ app.get('/projects', isAuthenticated, (req, res) => {
 
             for (let project of projects) {
 
-                // 🔹 récupérer les tâches
+                // récupérer les tâches
                 await new Promise(resolve => {
                     db.all(
                         `SELECT * FROM tasks WHERE project_id = ?`,
@@ -174,7 +175,7 @@ app.get('/projects', isAuthenticated, (req, res) => {
                     );
                 });
 
-                // 🔹 compter collaborateurs acceptés
+                // compter collaborateurs acceptés
                 await new Promise(resolve => {
                     db.get(
                         `SELECT COUNT(*) AS total 
@@ -186,6 +187,21 @@ app.get('/projects', isAuthenticated, (req, res) => {
                             project.collaborators_count = result ? result.total : 0;
 
                             resolve();
+                        }
+                    );
+                });
+                // vérifier si utilisateur est collaborateur
+                await new Promise(resolve => {
+                    db.get(
+                     `SELECT * FROM collaborations 
+                        WHERE project_id = ? 
+                        AND user_id = ? 
+                        AND status = 'accepted'`,
+                        [project.id, userId],
+                        (err, collab) => {
+
+                        project.isCollaborator = !!collab;
+                        resolve();
                         }
                     );
                 });

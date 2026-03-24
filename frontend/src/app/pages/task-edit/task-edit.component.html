@@ -16,8 +16,6 @@
     <h1>Modifier la tâche</h1>
 
     <form (ngSubmit)="onSubmit()" #editForm="ngForm" class="edit-form">
-      <!-- Hidden project_id (not needed in Angular, we'll use task.project_id) -->
-
       <div class="form-group">
         <label for="title">Titre de la tâche</label>
         <input id="title" type="text" name="title" [(ngModel)]="task.title" placeholder="Titre de la tâche" required

@@ -1,16 +1,15 @@
-/* Page entière */
+
 .auth-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #355872, #7AAACE); /* dégradé violet/bleu */
+  background: linear-gradient(135deg, #355872, #7AAACE); 
   font-family: 'Arial', sans-serif;
 }
 
-/* Carte / formulaire */
 .auth-card {
-  background: rgba(255, 255, 255, 0.95); /* blanc légèrement transparent */
+  background: rgba(255, 255, 255, 0.95); 
   padding: 40px;
   width: 400px;
   border-radius: 16px;
@@ -18,7 +17,6 @@
   animation: fadeIn 0.6s ease;
 }
 
-/* Logo */
 .logo {
   text-align: center;
   margin-bottom: 30px;
@@ -34,7 +32,6 @@
   font-size: 14px;
 }
 
-/* Inputs flottants */
 .input-group {
   position: relative;
   margin-bottom: 25px;
@@ -72,7 +69,6 @@
   color: #667eea;
 }
 
-/* Bouton */
 button {
   width: 100%;
   padding: 14px;
@@ -94,7 +90,6 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Messages */
 .error-message {
   color: red;
   text-align: center;
@@ -114,7 +109,6 @@ button:disabled {
   font-weight: 500;
 }
 
-/* Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;

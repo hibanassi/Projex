@@ -93,7 +93,7 @@
   font-size: 16px;
 }
 
-/* Modal */
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -132,8 +132,7 @@
   justify-content: flex-end;
 }
 
-/*css du dashboard*/
-/* Container et grille */
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -142,7 +141,7 @@
   background-color: #F7F8F0;
 }
 
-/* Carte projet */
+
 .project-card {
   background-color: #fff;
   border-radius: 12px;
@@ -159,7 +158,7 @@
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* Header projet avec badge propriétaire */
+
 .card-content h3 {
   font-size: 1.2rem;
   margin-bottom: 5px;
@@ -178,7 +177,7 @@
   margin-left: auto;
 }
 
-/* Description projet */
+
 .project-description {
   font-size: 0.95rem;
   color: #555;
@@ -186,7 +185,7 @@
   min-height: 40px;
 }
 
-/* Progression */
+
 .progress-section {
   margin-bottom: 10px;
 }
@@ -213,7 +212,7 @@
   transition: width 0.3s ease;
 }
 
-/* Footer et boutons */
+
 .card-footer {
   margin-top: 10px;
 }
@@ -246,7 +245,7 @@
   background-color: #5a6268;
 }
 
-/* === Section Filtre === */
+
 .filter-section {
   margin-bottom: 20px;
   display: flex;
@@ -275,7 +274,7 @@
   border-color: #2196F3;
 }
 
-/* Badge état du projet */
+
 .badge-status {
   display: inline-block;
   padding: 2px 6px;
@@ -286,15 +285,15 @@
   margin-top: 5px;
 }
 
-/* Couleur selon l'état */
+
 .badge-status:contains("À faire") {
-  background-color: #e67e22; /* orange */
+  background-color: #e67e22; 
 }
 .badge-status:contains("En cours") {
-  background-color: #3498db; /* bleu */
+  background-color: #3498db; 
 }
 .badge-status:contains("Terminé") {
-  background-color: #2ecc71; /* vert */
+  background-color: #2ecc71; 
 }
 
 .project-stats {
